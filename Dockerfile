@@ -7,6 +7,9 @@ FROM quay.io/keycloak/keycloak:${KC_VERSION} AS builder
 
 ENV KC_DB=postgres
 ENV KC_FEATURES=token-exchange,admin-fine-grained-authz
+ENV KC_HEALTH_ENABLED=true
+ENV KC_METRICS_ENABLED=true
+ENV KC_PROXY=edge
 
 COPY themes/depotflow/ /opt/keycloak/themes/depotflow/
 
