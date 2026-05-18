@@ -1,18 +1,14 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout displayMessage=!messagesPerField.existsError('username') displayInfo=true; section>
+<@layout.registrationLayout displayMessage=!messagesPerField.existsError('username'); section>
     <#if section = "header">
-        <h2 class="df-page-title">Reset your password</h2>
-        <p class="df-page-subtitle">Enter your email and we'll send you a link to reset your password.</p>
+        ${realm.displayName!realm.name}
     <#elseif section = "form">
+        <p id="kc-page-title">Reset your password</p>
+        <p class="kc-info">Enter your email and we'll send you a link to reset your password.</p>
+
         <#if message?has_content && message.type = 'success'>
-            <div class="alert-success">
+            <div style="background:#F0FDF4;border:1px solid #86EFAC;color:#166534;font-size:13px;padding:10px 12px;border-radius:6px;margin:0 0 20px;">
                 ${kcSanitize(message.summary)?no_esc}
-            </div>
-        </#if>
-        <#if message?has_content && message.type = 'error'>
-            <div class="alert-error">
-                <span class="error-dot"></span>
-                <span>${kcSanitize(message.summary)?no_esc}</span>
             </div>
         </#if>
 
@@ -24,7 +20,9 @@
             </div>
             <input class="btn-primary" type="submit" value="Send reset link" />
         </form>
-    <#elseif section = "info">
-        <a href="${url.loginUrl}">← Back to sign in</a>
+
+        <p class="kc-back-link">
+            <a href="${url.loginUrl}">← Back to sign in</a>
+        </p>
     </#if>
 </@layout.registrationLayout>

@@ -1,120 +1,75 @@
 :root {
-  --df-primary:       #4f46e5;
-  --df-primary-hover: #4338ca;
-  --df-text:          #0f172a;
-  --df-text-secondary:#64748b;
-  --df-text-muted:    #94a3b8;
-  --df-label:         #334155;
-  --df-border:        #cbd5e1;
-  --df-border-subtle: #e2e8f0;
-  --df-page:          #f8fafc;
-  --df-card:          #ffffff;
-  --df-error-bg:      #fef2f2;
-  --df-error-border:  #fca5a5;
-  --df-error-text:    #991b1b;
-  --df-error-dot:     #dc2626;
-  --df-success-bg:    #f0fdf4;
-  --df-success-border:#86efac;
-  --df-success-text:  #166534;
+  --df-primary: #4F46E5;
+  --df-primary-hover: #4338CA;
+  --df-text: #0F172A;
+  --df-text-secondary: #64748B;
+  --df-text-muted: #94A3B8;
+  --df-label: #334155;
+  --df-border: #CBD5E1;
+  --df-border-subtle: #E2E8F0;
+  --df-page: #F8FAFC;
+  --df-card: #FFFFFF;
+  --df-error-bg: #FEF2F2;
+  --df-error-border: #FCA5A5;
+  --df-error-text: #991B1B;
+  --df-error-dot: #DC2626;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-html, body {
+body, html {
   margin: 0;
   padding: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--df-page);
+  color: var(--df-text);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Page shell ── */
-body {
-  min-height: 100vh;
-  background: var(--df-page);
-  color: var(--df-text);
+.login-pf-page {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 16px;
+  min-height: 100vh;
+  padding: 40px 24px;
 }
 
-.df-main {
+.card-pf {
+  background: var(--df-card);
+  max-width: 400px;
   width: 100%;
-  max-width: 448px; /* ~28rem — max-w-md */
+  border: 1px solid var(--df-border-subtle);
+  border-radius: 8px;
+  padding: 32px;
 }
 
-/* ── Brand header ── */
-.df-brand {
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.df-brand-name {
-  margin: 0;
-  font-size: 26px;
-  font-weight: 700;
+#kc-header,
+#kc-header-wrapper {
+  font-size: 28px;
+  font-weight: 600;
   color: var(--df-text);
+  text-align: center;
+  margin: 0 0 6px;
   letter-spacing: -0.02em;
 }
 
-/* ── Card ── */
-.df-card {
-  background: var(--df-card);
-  border: 1px solid var(--df-border-subtle);
-  border-radius: 8px;
-  padding: 28px 28px 24px;
+#kc-page-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--df-text-secondary);
+  text-align: center;
+  margin: 0 0 28px;
 }
 
-/* ── Page title (inside card, per-page h2) ── */
-.df-page-title {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--df-text);
-  margin: 0 0 4px;
-}
-
-.df-page-subtitle {
+.kc-info {
   font-size: 13px;
   color: var(--df-text-secondary);
+  text-align: center;
   margin: 0 0 20px;
   line-height: 1.5;
 }
 
-/* ── Footer ── */
-.df-footer {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 11px;
-  color: var(--df-text-muted);
-}
-
-.df-footer-brand {
-  font-weight: 500;
-  color: var(--df-text-secondary);
-}
-
-/* ── Info section (back-links, etc.) ── */
-.df-info {
-  margin-top: 16px;
-  text-align: center;
-  font-size: 13px;
-}
-
-/* ── Form groups ── */
-.form-group {
-  margin-bottom: 16px;
-}
-
-label, .control-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--df-label);
-  margin-bottom: 6px;
-}
-
-/* ── Inputs ── */
 .form-control,
 input[type="text"],
 input[type="email"],
@@ -122,13 +77,13 @@ input[type="password"] {
   width: 100%;
   height: 40px;
   padding: 0 12px;
-  background: #fff;
+  background: #FFFFFF;
   border: 1px solid var(--df-border);
   border-radius: 6px;
   font-size: 14px;
   color: var(--df-text);
   font-family: inherit;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .form-control:focus,
@@ -140,23 +95,26 @@ input[type="password"]:focus {
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
 }
 
-/* OTP digit input */
-input[name="otp"] {
-  text-align: center;
-  font-size: 22px;
+label,
+.control-label {
+  display: block;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.5em;
-  padding-left: 0.5em;
+  color: var(--df-label);
+  margin-bottom: 6px;
 }
 
-/* ── Primary button ── */
+.form-group {
+  margin-bottom: 16px;
+}
+
 .btn-primary,
 input[type="submit"] {
   display: block;
   width: 100%;
   height: 40px;
   background: var(--df-primary);
-  color: #fff;
+  color: #FFFFFF;
   border: none;
   border-radius: 6px;
   font-size: 14px;
@@ -166,14 +124,14 @@ input[type="submit"] {
   text-align: center;
   line-height: 40px;
   text-decoration: none;
-  transition: background 0.15s;
+  transition: background 0.15s ease;
 }
 
 .btn-primary:hover,
 input[type="submit"]:hover {
   background: var(--df-primary-hover);
-  color: #fff;
   text-decoration: none;
+  color: #FFFFFF;
 }
 
 .btn-primary:focus,
@@ -182,7 +140,43 @@ input[type="submit"]:focus {
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
 }
 
-/* ── Remember me / form options row ── */
+.alert-error,
+#input-error,
+.pf-c-alert.pf-m-danger {
+  background: var(--df-error-bg);
+  border: 1px solid var(--df-error-border);
+  color: var(--df-error-text);
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.error-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--df-error-dot);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+a,
+.kc-link {
+  color: var(--df-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--df-primary-hover);
+}
+
 #kc-form-options {
   display: flex;
   align-items: center;
@@ -210,83 +204,48 @@ input[type="submit"]:focus {
   vertical-align: middle;
 }
 
-/* ── Alerts ── */
-.alert-error,
-#input-error {
-  background: var(--df-error-bg);
-  border: 1px solid var(--df-error-border);
-  color: var(--df-error-text);
-  font-size: 13px;
-  padding: 10px 12px;
-  border-radius: 6px;
-  margin: 0 0 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+#kc-footer,
+.df-footer {
+  font-size: 11px;
+  color: var(--df-text-muted);
+  text-align: center;
+  margin-top: 24px;
 }
 
-.alert-success {
-  background: var(--df-success-bg);
-  border: 1px solid var(--df-success-border);
-  color: var(--df-success-text);
-  font-size: 13px;
-  padding: 10px 12px;
-  border-radius: 6px;
-  margin: 0 0 20px;
-}
-
-.error-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: var(--df-error-dot);
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 4px;
-}
-
-/* ── Links ── */
-a {
-  color: var(--df-primary);
-  text-decoration: none;
+/* OTP digit input */
+input[name="otp"] {
+  text-align: center;
+  font-size: 22px;
   font-weight: 500;
+  letter-spacing: 0.5em;
+  padding-left: 0.5em;
 }
 
-a:hover {
-  color: var(--df-primary-hover);
-  text-decoration: underline;
+/* Hide Keycloak's default top-banner / logo strip */
+#kc-header { display: block; }
+.login-pf-header { display: none; }
+
+/* Remove PatternFly nav chrome if present */
+.pf-c-nav,
+.pf-c-page__header,
+#kc-social-providers-wrapper,
+#kc-locale-wrapper { display: none; }
+
+/* Adjust PatternFly card override if needed */
+.pf-c-login__main-body {
+  padding: 0;
 }
 
-/* ── Verify-email body text ── */
-.df-verify-text {
-  font-size: 14px;
-  color: var(--df-text-secondary);
-  line-height: 1.6;
-  margin: 0 0 20px;
-}
-
-.df-verify-email {
-  font-weight: 600;
-  color: var(--df-text);
-}
-
-/* ── Back-link row ── */
+/* Back-link row */
 .kc-back-link {
   text-align: center;
   margin-top: 16px;
   font-size: 13px;
 }
 
-/* ── Divider ── */
+/* Divider */
 .kc-divider {
   border: none;
   border-top: 1px solid var(--df-border-subtle);
   margin: 20px 0;
 }
-
-/* ── Suppress KC / PatternFly chrome we don't use ── */
-.login-pf-header,
-#kc-locale-wrapper,
-#kc-social-providers-wrapper,
-.pf-c-nav,
-.pf-c-page__header { display: none; }

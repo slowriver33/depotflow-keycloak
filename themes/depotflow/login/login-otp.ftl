@@ -1,9 +1,11 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout; section>
     <#if section = "header">
-        <h2 class="df-page-title">Two-factor verification</h2>
-        <p class="df-page-subtitle">Enter the 6-digit code from your authenticator app.</p>
+        ${realm.displayName!realm.name}
     <#elseif section = "form">
+        <p id="kc-page-title">Two-factor verification</p>
+        <p class="kc-info">Enter the 6-digit code from your authenticator app.</p>
+
         <#if message?has_content && message.type = 'error'>
             <div class="alert-error">
                 <span class="error-dot"></span>

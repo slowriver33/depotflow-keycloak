@@ -1,9 +1,10 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout; section>
     <#if section = "header">
-        <h2 class="df-page-title">Set a new password</h2>
-        <p class="df-page-subtitle">Choose a password with at least 8 characters including one uppercase letter, one number, and one special character.</p>
+        ${realm.displayName!realm.name}
     <#elseif section = "form">
+        <p id="kc-page-title">Set a new password</p>
+
         <#if message?has_content && message.type = 'error'>
             <div class="alert-error">
                 <span class="error-dot"></span>
@@ -25,7 +26,7 @@
                 <input type="password" id="password-confirm" name="password-confirm" class="form-control"
                        autocomplete="new-password" />
             </div>
-            <input class="btn-primary" type="submit" value="Set password" />
+            <input class="btn-primary" type="submit" value="Update password" />
         </form>
     </#if>
 </@layout.registrationLayout>
