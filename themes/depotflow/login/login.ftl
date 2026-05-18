@@ -1,10 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password'); section>
     <#if section = "header">
-        ${realm.displayName!realm.name}
+        <h2 class="df-page-title">Sign in to your account</h2>
     <#elseif section = "form">
-        <p id="kc-page-title">Sign in to your account</p>
-
         <#if message?has_content && message.type = 'error'>
             <div class="alert-error">
                 <span class="error-dot"></span>
@@ -46,7 +44,5 @@
                    <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if> />
             <input tabindex="4" class="btn-primary" name="login" id="kc-login" type="submit" value="Sign in" />
         </form>
-
-        <p id="kc-footer">Powered by DepotFlow</p>
     </#if>
 </@layout.registrationLayout>
