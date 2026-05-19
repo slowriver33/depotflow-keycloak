@@ -22,3 +22,4 @@ WORKDIR /opt/keycloak
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 CMD ["start", "--optimized"]
+# rebuild trigger 1779190732
