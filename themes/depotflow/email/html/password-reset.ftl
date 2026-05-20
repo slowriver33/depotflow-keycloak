@@ -1,4 +1,3 @@
-<#assign realmName=realm.displayName!realm.name>
 <html>
 <head>
 <meta charset="UTF-8">

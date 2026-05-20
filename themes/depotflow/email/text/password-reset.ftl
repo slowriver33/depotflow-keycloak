@@ -1,4 +1,3 @@
-<#assign realmName=realm.displayName!realm.name>
 ${realmName}
 
 Hi ${user.firstName!''},
