@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label for="username" class="control-label">Email</label>
                 <input tabindex="1" id="username" class="form-control" name="username"
-                       value="${(login.username!'')}" type="email" autofocus autocomplete="email"
+                       value="${(login.username!'')}" type="text" autofocus autocomplete="username"
                        aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>" />
             </div>
 
